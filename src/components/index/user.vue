@@ -65,7 +65,8 @@
         user_nav: [{
           name: '推广获取',
           path: '/user-commision',
-          icon: require('../../assets/img/usericon7.png')
+          icon: require('../../assets/img/usericon7.png'),
+          disable: true
         },{
           name: '举报维权',
           path: '/report',

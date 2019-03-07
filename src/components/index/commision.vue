@@ -1,9 +1,10 @@
 <template>
-  <div class="detail-body scroll-top">
-    <back></back>
-    <!--<div class="header">-->
-      <!--<userheader></userheader>-->
-    <!--</div>-->
+  <div>
+    <!--class="detail-body scroll-top"-->
+    <!--<back></back>-->
+    <div class="header">
+      <userheader></userheader>
+    </div>
     <div class="task-info flex fw js">
       <div class="task-color-title flex">
         <span class="flex js">我的好友</span>

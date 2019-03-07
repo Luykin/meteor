@@ -36,12 +36,10 @@ export function debounce(func, delay) {
 }
 export function getKey() {
   const timestamp = parseInt(Date.parse(new Date()) / 1000)
-  const key = md5(timestamp + decryptByDES('pm+VjW6uV5gFNGfZ83r1pw==', '') + decryptByDES('2qhuliPfW8Y=', ''))
-  return key
+  return md5(timestamp + decryptByDES('pm+VjW6uV5gFNGfZ83r1pw==', '') + decryptByDES('2qhuliPfW8Y=', ''))
 }
 export function getTime() {
-  const timestamp = parseInt(Date.parse(new Date()) / 1000)
-  return timestamp
+  return parseInt(Date.parse(new Date()) / 1000)
 }
 export function getSign(data) {
   let sortedKeys = Object.keys(data).sort()
@@ -60,11 +58,7 @@ export function getSign(data) {
 export function testToken(tokenTime) {
   let nowTime = +new Date()
   let tokenTimeA = tokenTime || 0
-  if (nowTime > tokenTimeA) {
-    return false
-  } else {
-    return true
-  }
+  return nowTime > tokenTimeA
 }
 export function timeChange(time) {
   let date = new Date(time)
@@ -99,19 +93,8 @@ export function encryptedStorage(key, value) {
   localStorage.setItem(key, v)
 }
 export function isPhone() {
-  if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
-    return true
-  } else {
-    return false
-  }
+  return /Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)
 }
-// export function isWx() {
-//   if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent) && navigator.userAgent.indexOf('MicroMessenger') > -1) {
-//     return true
-//   } else {
-//     return false
-//   }
-// }
 export function isWx() {
   return /Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent) && navigator.userAgent.indexOf('MicroMessenger') > -1
 }
@@ -135,8 +118,7 @@ function wechatSign(data) {
     signStr += key + '=' + data[key] + '&'
   }
   signStr += 'key=' + '2018ybyscde2383f6839ee8a99d1d8e6ba8a7e'
-  const sign = CryptoJS.MD5(signStr).toString().toUpperCase()
-  return sign
+  return CryptoJS.MD5(signStr).toString().toUpperCase()
 }
 
 export function compare(property) {

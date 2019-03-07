@@ -126,12 +126,12 @@ const routerconst = new Router({
     path: '/commision',
     name: 'commision',
     component: () =>
-      import (`components/index/new-commision`),
+      import (`components/index/commision`),
     children: [{
-      path: '/group',
-      name: 'group',
+      path: '/detail',
+      name: 'detail-commision',
       component: () =>
-        import(`components/detail/group`)
+        import(`components/detail/commision`)
     }]
   }, {
     path: '/success',
